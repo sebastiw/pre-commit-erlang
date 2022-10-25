@@ -1,0 +1,9 @@
+---
+
+-   id: format-files
+    name: Format erlang files
+    description: This hook formats erlang files
+    entry: bin/rebar3-fmt.sh
+    language: script
+    files: (\.erl|\.hrl|sys.config.src)$
+    types: [text]
