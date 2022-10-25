@@ -1,30 +1,14 @@
 #!/bin/bash
 
-REBAR3=`which rebar3`
-REBAR_CONFIG="rebar.config"
+REBAR3="$1"
+REBAR_CONFIG="$2"
 FORMAT_PLUGIN="erlfmt"
 FORMAT_COMMAND="fmt"
-
-if [[ ! -f "$REBAR3" ]]
-then
-   echo "Rebar3 not found"
-   exit 1
-fi
-
-PATHS=`dirname $@ | sort -u`
 PWD=`pwd`
 
-APPS=()
-for p in $PATHS
-do
-    while [[ ! -f "$p/$REBAR_CONFIG" ]]
-    do
-        p=`dirname $p`
-    done
-    APPS=($p $APPS)
-done
+shift 2
+APPS=$@
 
-APPS=`echo "$APPS" | sort -u`
 for a in $APPS
 do
     cd "$PWD/$a"
