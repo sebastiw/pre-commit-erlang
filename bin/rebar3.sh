@@ -1,5 +1,6 @@
 #!/bin/bash
 
+## Make sure rebar3 exist
 REBAR3=`which rebar3`
 REBAR_CONFIG="rebar.config"
 if [[ ! -f "$REBAR3" ]]
@@ -8,9 +9,11 @@ then
    exit 1
 fi
 
-CMD="$1"
+REBAR_CMD="$1"
 shift
 
+## Loop upwards in directory-structure to find the rebar3 application
+## (find rebar.config from src files)
 PATHS=`dirname $@ | sort -u`
 APPS=()
 for p in $PATHS
@@ -23,11 +26,11 @@ do
 done
 APPS=`echo "$APPS" | sort -u`
 
-case "$CMD" in
-     fmt)
-         `dirname $0`/rebar3-fmt.sh $REBAR3 $REBAR_CONFIG $APPS
-         ;;
-    *)
-        echo "CMD not understood"
-        exit 1
-esac
+## Run the rebar3 command on each application found
+PWD=`pwd`
+for a in $APPS
+do
+    echo "Running $REBAR3 $REBAR_CMD in $PWD/$a"
+    cd "$PWD/$a"
+    $REBAR3 $REBAR_CMD
+done

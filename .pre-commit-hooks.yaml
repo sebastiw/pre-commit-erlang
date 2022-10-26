@@ -1,10 +1,55 @@
----
+-   id: rebar3-clean
+    name: Clean rebar3 application
+    description: Clean the application with Rebar3
+    entry: bin/rebar3.sh clean
+    language: script
+    files: (\.erl|\.hrl|sys.config.src)$
+    types: [text]
+    stages: [commit, push, manual]
 
--   id: format-files-with-erlfmt
-    name: Format files
-    description: This hook formats erlang files with Rebar3 and erlfmt
+-   id: rebar3-compile
+    name: Compile rebar3 application
+    description: Compile the application with Rebar3
+    entry: bin/rebar3.sh compile
+    language: script
+    files: (\.erl|\.hrl|sys.config.src)$
+    types: [text]
+    stages: [commit, push, manual]
+
+-   id: rebar3-eunit
+    name: Test rebar3 application with eunit
+    description: Run the eunit tests of the application with Rebar3
+    entry: bin/rebar3.sh eunit
+    language: script
+    files: (\.erl|\.hrl|sys.config.src)$
+    types: [text]
+    stages: [commit, push, manual]
+
+-   id: rebar3-ct
+    name: Test rebar3 application with common test
+    description: Run the common tests of the application with Rebar3
+    entry: bin/rebar3.sh ct
+    language: script
+    files: (\.erl|\.hrl|sys.config.src)$
+    types: [text]
+    stages: [commit, push, manual]
+
+-   id: rebar3-dialyzer
+    name: Run dialyzer on rebar3 application
+    description: Run the discrepancy analyzer for the application with Rebar3
+    entry: bin/rebar3.sh dialyzer
+    language: script
+    files: (\.erl|\.hrl|sys.config.src)$
+    types: [text]
+    stages: [commit, push, manual]
+
+
+-   id: rebar3-erlfmt
+    name: Format rebar3 application
+    description: Format the application with Rebar3 and erlfmt
     entry: bin/rebar3.sh fmt
     language: script
     files: (\.erl|\.hrl|sys.config.src)$
     types: [text]
+    stages: [commit, push, manual]
 
