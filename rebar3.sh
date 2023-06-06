@@ -46,7 +46,13 @@ do
         DIR=`dirname "${BASH_SOURCE[0]}"`
         HASH=`git --git-dir=$DIR/.git rev-parse --short HEAD`
         NAME="pre-commit-erlang"
-        $DOCKER build $DIR --tag $NAME:$HASH
-        $DOCKER run --rm -v "$PWD/$a":/src:rw,Z --workdir /src $NAME:$HASH "rebar3" "$REBAR_CMD"
+        $DOCKER build \
+                --build-arg USER_ID=$(id -u) \
+                --build-arg GROUP_ID=$(id -g) \
+                $DIR --tag $NAME:$HASH
+        $DOCKER run --rm \
+                -v "$PWD/$a":/src:rw,Z \
+                --workdir /src \
+                $NAME:$HASH "rebar3" "$REBAR_CMD"
     fi
 done

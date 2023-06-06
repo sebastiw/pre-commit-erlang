@@ -1,9 +1,12 @@
 FROM erlang:24-alpine
 
+ARG USER_ID
+ARG GROUP_ID
+
 # Install git and create nonroot user
 RUN apk update && apk add --no-cache git; \
-    addgroup -S nonroot; \
-    adduser -S nonroot -G nonroot --disabled-password
+    addgroup -g $GROUP_ID nonroot; \
+    adduser -u $USER_ID -S nonroot -G nonroot --disabled-password
 
 # Get rebar3
 WORKDIR /rebar3
