@@ -1,7 +1,7 @@
 -   id: rebar3-clean
     name: Clean rebar3 application
     description: Clean the application with Rebar3
-    entry: bin/rebar3.sh clean
+    entry: rebar3.sh clean
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
@@ -10,7 +10,7 @@
 -   id: rebar3-compile
     name: Compile rebar3 application
     description: Compile the application with Rebar3
-    entry: bin/rebar3.sh compile
+    entry: rebar3.sh compile
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
@@ -19,7 +19,7 @@
 -   id: rebar3-eunit
     name: Test rebar3 application with eunit
     description: Run the eunit tests of the application with Rebar3
-    entry: bin/rebar3.sh eunit
+    entry: rebar3.sh eunit
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
@@ -28,7 +28,7 @@
 -   id: rebar3-ct
     name: Test rebar3 application with common test
     description: Run the common tests of the application with Rebar3
-    entry: bin/rebar3.sh ct
+    entry: rebar3.sh ct
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
@@ -37,7 +37,7 @@
 -   id: rebar3-dialyzer
     name: Run dialyzer on rebar3 application
     description: Run the discrepancy analyzer for the application with Rebar3
-    entry: bin/rebar3.sh dialyzer
+    entry: rebar3.sh dialyzer
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
@@ -47,7 +47,7 @@
 -   id: rebar3-erlfmt
     name: Format rebar3 application
     description: Format the application with Rebar3 and erlfmt
-    entry: bin/rebar3.sh fmt
+    entry: rebar3.sh fmt
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
