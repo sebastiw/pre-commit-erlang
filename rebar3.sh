@@ -27,6 +27,7 @@ do
 done
 APPS=`echo "$APPS" | sort -u`
 
+echo "APPS: $APPS"
 
 ## Run the rebar3 command on each application found
 PWD=`pwd`
@@ -40,7 +41,7 @@ do
     elif [[ -f "$DOCKER" ]]
     then
         echo "INFO: For quicker workflow, download http://rebar3.org/ and add it to \$PATH"
-        echo "Running $DOCKER $REBAR_CMD in $PWD/$a"
+        echo "Running rebar3 $REBAR_CMD in $PWD/$a inside $DOCKER"
 
         DIR=`dirname "${BASH_SOURCE[0]}"`
         HASH=`git --git-dir=$DIR/.git rev-parse --short HEAD`
