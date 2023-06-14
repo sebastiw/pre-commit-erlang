@@ -1,4 +1,4 @@
-FROM erlang:24-alpine
+FROM erlang:26.0-alpine
 
 ARG USER_ID
 ARG GROUP_ID
