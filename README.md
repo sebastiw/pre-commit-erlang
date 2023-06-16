@@ -7,7 +7,7 @@ Add the hooks to your .pre-commit-config.yaml like so:
 
 ```yaml
   - repo: https://github.com/sebastiw/pre-commit-erlang
-    rev: v0.2.0
+    rev: v0.3.1
     hooks:
       - id: rebar3-fmt
 ```
