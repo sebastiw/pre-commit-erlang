@@ -47,8 +47,6 @@ do
         HASH=`git --git-dir=$DIR/.git rev-parse --short HEAD`
         NAME="pre-commit-erlang"
         $DOCKER build \
-                --build-arg USER_ID=$(id -u) \
-                --build-arg GROUP_ID=$(id -g) \
                 $DIR --tag $NAME:$HASH
         $DOCKER run --rm \
                 -v "$PWD/$a":/src:rw,Z \
