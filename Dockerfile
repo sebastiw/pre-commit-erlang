@@ -1,7 +1,7 @@
 FROM erlang:26.0-alpine
 
-ARG USER_ID
-ARG GROUP_ID
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
 # Install git and create nonroot user
 RUN apk update && apk add --no-cache git; \
@@ -12,6 +12,9 @@ RUN apk update && apk add --no-cache git; \
 WORKDIR /rebar3
 ADD https://s3.amazonaws.com/rebar3/rebar3 ./
 ENV PATH="${PATH}:/rebar3"
+
+# Create /src directory and set ownership to nonroot user
+RUN mkdir /src && chown $USER_ID:$GROUP_ID /src
 
 # Use the nonroot user
 USER nonroot
