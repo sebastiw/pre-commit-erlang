@@ -5,7 +5,6 @@
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
-    stages: [commit, push, manual]
 
 -   id: rebar3-compile
     name: Compile rebar3 application
@@ -14,7 +13,6 @@
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
-    stages: [commit, push, manual]
 
 -   id: rebar3-eunit
     name: Test rebar3 application with eunit
@@ -23,7 +21,6 @@
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
-    stages: [commit, push, manual]
 
 -   id: rebar3-ct
     name: Test rebar3 application with common test
@@ -32,7 +29,6 @@
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
-    stages: [commit, push, manual]
 
 -   id: rebar3-dialyzer
     name: Run dialyzer on rebar3 application
@@ -41,8 +37,6 @@
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
-    stages: [commit, push, manual]
-
 
 -   id: rebar3-erlfmt
     name: Format rebar3 application
@@ -51,5 +45,3 @@
     language: script
     files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
     types: [text]
-    stages: [commit, push, manual]
-
