@@ -3,7 +3,7 @@
     description: Clean the application with Rebar3
     entry: rebar3.sh clean
     language: script
-    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
+    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config|rebar.config.script)$
     types: [text]
     stages: [commit, push, manual]
 
@@ -12,7 +12,7 @@
     description: Compile the application with Rebar3
     entry: rebar3.sh compile
     language: script
-    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
+    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config|rebar.config.script)$
     types: [text]
     stages: [commit, push, manual]
 
@@ -21,7 +21,7 @@
     description: Run the eunit tests of the application with Rebar3
     entry: rebar3.sh eunit
     language: script
-    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
+    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config|rebar.config.script)$
     types: [text]
     stages: [commit, push, manual]
 
@@ -30,7 +30,7 @@
     description: Run the common tests of the application with Rebar3
     entry: rebar3.sh ct
     language: script
-    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
+    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config|rebar.config.script)$
     types: [text]
     stages: [commit, push, manual]
 
@@ -39,7 +39,7 @@
     description: Run the discrepancy analyzer for the application with Rebar3
     entry: rebar3.sh dialyzer
     language: script
-    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
+    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config|rebar.config.script)$
     types: [text]
     stages: [commit, push, manual]
 
@@ -49,7 +49,7 @@
     description: Format the application with Rebar3 and erlfmt
     entry: rebar3.sh fmt
     language: script
-    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config)$
+    files: (\.erl|\.hrl|\.app.src|sys.config.src|rebar.config|rebar.config.script)$
     types: [text]
     stages: [commit, push, manual]
 
